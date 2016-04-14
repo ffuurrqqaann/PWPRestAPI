@@ -22,47 +22,52 @@ import com.pwp.restapi.model.*;
 import com.pwp.restapi.service.AnnouncementService;
 import com.pwp.restapi.service.ContestService;
 import com.pwp.restapi.utils.JsonUtil;
+import com.pwp.restapi.utils.UrlUtil;
+
+
+/**
+ * PWP RestAPI Implementation.
+ * 
+ * @category 	Controller.
+ * @package 	com.pwp.restapi.controller.
+ * @author  	Furqan Ahmed <ahmedfurqan88@gmail.com>
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * */
 
 @Controller
 public class PsoasController {
 
 	private AnnouncementService announcementService;
-
+	
+	//announcements list endpoint.
+	private String announcementsEndpoint = "/announcements";
+	
 	@Autowired(required=true)
 	@Qualifier(value="AnnouncementService")
 	public void setAnnouncementService(AnnouncementService announcementService) {
 		this.announcementService = announcementService;
 	}
-
+	
+	/**
+	 * @author	furqan
+	 * @param	Model model, HttpServletRequest request
+	 * @return	String
+	 */
 	@RequestMapping(value="/announcements/", method=RequestMethod.GET)
 	@ResponseBody
 	public String getAllAnnouncements (Model model, HttpServletRequest request) {
 
 		List<Announcement> announcementList = this.announcementService.announcementList();
 		
-		
-		
-		URI uri = null;
-		try {
-			URL url = new URL(request.getRequestURL().toString());
-			String host  = url.getHost();
-			String userInfo = url.getUserInfo();
-			String scheme = url.getProtocol();
-			int port = url.getPort();
-			String path = (String) request.getAttribute("javax.servlet.forward.request_uri");
-			String query = (String) request.getAttribute("javax.servlet.forward.query_string");
-
-			uri = new URI(scheme,userInfo,host,port,path,query,null);
-		} catch(Exception e) {
-			System.out.println(e.toString());
-		}
-
+		//getting application url from url utilities file.
+		String appUrl = UrlUtil.getApplicationUrl(request);
 
 		//api version.
-		String version = "\"1.0\"";
+		String version = "\"".concat(UrlUtil.apiVersionNumber).concat("\"");
 
 		//endpoint url.
-		String href="www.google.com";
+		String href=appUrl;
+		href = href.concat(this.announcementsEndpoint);
 
 		//endpoint related links.
 		Map<String, String> links = new HashMap<String, String>();
@@ -165,8 +170,7 @@ public class PsoasController {
 		//String resStr = JsonUtil.createCollectionJsonFormat(version, href, links, itemsHref, itemData, itemLinks, template);
 
 		//return resStr;
-		return uri.toString();
+		return resStr;
 	}
-
 
 }
