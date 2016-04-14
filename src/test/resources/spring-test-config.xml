@@ -1,0 +1,136 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<mvc:annotation-driven />
+	<tx:annotation-driven />
+	<context:component-scan base-package="com.comag10.crowdflower" />
+	
+	<!-- Application Message Bundle -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/messages" />
+		<property name="cacheSeconds" value="3000" />
+	</bean>
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/psoas" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.comag10.crowdflower.model.User</value>
+				<value>com.comag10.crowdflower.model.UserSetting</value>
+				<value>com.comag10.crowdflower.model.Announcement</value>
+				<value>com.comag10.crowdflower.model.Contest</value>
+				<value>com.comag10.crowdflower.model.Vote</value>
+				<value>com.comag10.crowdflower.model.Setting</value>
+				<value>com.comag10.crowdflower.model.Category</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- initializing beans -->
+	
+	<!-- user bean -->
+	<bean id="userDAO" class="com.comag10.crowdflower.dao.UserDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="userService"
+		class="com.comag10.crowdflower.service.UserServiceImpl">
+		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	
+	<!-- user setting bean -->
+	<bean id="userSettingDAO" class="com.comag10.crowdflower.dao.UserSettingDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="userSettingService"
+		class="com.comag10.crowdflower.service.UserSettingServiceImpl">
+		<property name="userSettingDAO" ref="userSettingDAO"></property>
+	</bean>
+	
+	<!-- user contest bean -->
+	<bean id="contestDAO" class="com.comag10.crowdflower.dao.ContestDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="contestService"
+		class="com.comag10.crowdflower.service.ContestServiceImpl">
+		<property name="contestDAO" ref="contestDAO"></property>
+	</bean>
+	
+	<!-- user votes bean -->
+	<bean id="voteDAO" class="com.comag10.crowdflower.dao.VoteDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="voteService"
+		class="com.comag10.crowdflower.service.VoteServiceImpl">
+		<property name="voteDAO" ref="voteDAO"></property>
+	</bean>
+	
+	<!-- user announcement bean -->
+	<bean id="announcementDAO" class="com.comag10.crowdflower.dao.AnnouncementDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="announcementService"
+		class="com.comag10.crowdflower.service.AnnouncementServiceImpl">
+		<property name="announcementDAO" ref="announcementDAO"></property>
+	</bean>
+	
+	<!-- settings bean -->
+	<bean id="settingDAO" class="com.comag10.crowdflower.dao.SettingDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="settingService"
+		class="com.comag10.crowdflower.service.SettingServiceImpl">
+		<property name="settingDAO" ref="settingDAO"></property>
+	</bean>
+	
+	<!-- category bean -->
+	<bean id="categoryDAO" class="com.comag10.crowdflower.dao.CategoryDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="categoryService"
+		class="com.comag10.crowdflower.service.CategoryServiceImpl">
+		<property name="categoryDAO" ref="categoryDAO"></property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+</beans>
