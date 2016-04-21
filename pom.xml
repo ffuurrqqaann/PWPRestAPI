@@ -228,6 +228,29 @@
 			<artifactId>json-collection</artifactId>
 			<version>3.1.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>net.hamnaberg.json</groupId>
+			<artifactId>immutable-json-jackson</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.hamnaberg.json</groupId>
+			<artifactId>immutable-json-codec</artifactId>
+			<version>2.1.0</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.damnhandy</groupId>
+			<artifactId>handy-uri-templates</artifactId>
+			<version>2.0.4</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>net.hamnaberg</groupId>
+			<artifactId>funclite</artifactId>
+			<version>0.2.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>PWPRestAPI</finalName>
