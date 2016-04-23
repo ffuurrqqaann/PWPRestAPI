@@ -27,11 +27,10 @@ public class ContestDaoImpl implements ContestDao {
 	public Boolean addContest(Contest c, int userId) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		
-		User user = (User)session.load(User.class, new Integer(1));
-		
+
+		User user = (User)session.load(User.class, new Integer(userId));
 		c.setUser(user);
-		
+
 		try {
 			session.persist(c);
 			logger.info("Contest added successfully, Contest Details="+c);
@@ -55,5 +54,18 @@ public class ContestDaoImpl implements ContestDao {
 		}
 
 		return contestList;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Contest getContest(Contest c) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+
+		List<Contest> contestList = session.createQuery(" from Contest WHERE id="+c.getId()).list();
+		for(Contest contest : contestList) {
+			logger.info("Contest List::"+contest);
+		}
+
+		return contestList.get(0);
 	}
 }

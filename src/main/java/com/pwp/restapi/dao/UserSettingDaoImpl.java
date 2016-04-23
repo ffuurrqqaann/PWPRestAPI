@@ -49,7 +49,7 @@ public class UserSettingDaoImpl implements UserSettingDao {
 		return userSetting;
 	}
 
-	public Boolean updateUserSetting(User user, Setting setting, int status) {
+	public Boolean updateUserSetting(UserSetting us) {
 		// TODO Auto-generated method stub
 		
 		Session session  = this.sessionFactory.getCurrentSession();
@@ -58,9 +58,9 @@ public class UserSettingDaoImpl implements UserSettingDao {
 		
 		Query query = session.createQuery(queryStr);
 		
-		query.setParameter("status", status);
-		query.setParameter("userId", user.getId());
-		query.setParameter("settingId", setting.getId());
+		query.setParameter("status", us.getStatus());
+		query.setParameter("userId", us.getUser().getId());
+		query.setParameter("settingId", us.getSetting().getId());
 		
 		Boolean isUpdated = query.executeUpdate()>0?true:false;
 		

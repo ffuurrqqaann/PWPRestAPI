@@ -7,5 +7,6 @@ public interface UserService {
 	public User login(User u);
 	public Boolean signup(User u);
 	public Boolean checkUserExist(User u);
-
+	public User getUserById(User u);
+	
 }

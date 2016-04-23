@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.pwp.restapi.dao.ContestDao;
 import com.pwp.restapi.dao.UserDao;
 import com.pwp.restapi.model.Contest;
+import com.pwp.restapi.model.User;
 
 @Service("ContestService")
 public class ContestServiceImpl implements ContestService {
@@ -31,5 +32,13 @@ public class ContestServiceImpl implements ContestService {
 		List<Contest> contests = this.contestDAO.getAllContests();
 		
 		return contests;
+	}
+
+	public Contest getContestById(Contest c) {
+		// TODO Auto-generated method stub
+		
+		Contest contest = this.contestDAO.getContest(c);
+		
+		return contest;
 	}
 }

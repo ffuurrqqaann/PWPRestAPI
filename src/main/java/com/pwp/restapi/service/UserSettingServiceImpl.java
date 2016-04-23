@@ -25,11 +25,11 @@ public class UserSettingServiceImpl implements UserSettingService{
 		return settings;
 	}
 
-	public Boolean updateUserSetting(User user, Setting setting, int status) {
+	public Boolean updateUserSetting(UserSetting us) {
 		// TODO Auto-generated method stub
 		
 		//updating the user setting.
-		Boolean isUpdated = this.userSettingDAO.updateUserSetting(user, setting, status);
+		Boolean isUpdated = this.userSettingDAO.updateUserSetting(us);
 		
 		return isUpdated;
 	}

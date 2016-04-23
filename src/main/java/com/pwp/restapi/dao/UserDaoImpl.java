@@ -44,12 +44,15 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
 		
-		List<User> userList = session.createQuery(" from User").list();
+		List<User> userList = session.createQuery(" from User WHERE id="+u.getId()).list();
 		for(User user : userList){
 			logger.info("User List::"+user);
 		}
 		
-		return userList.get(0);
+		if(userList.size()>0)
+			return userList.get(0);
+		else
+			return null;
 	}
 	
 	@SuppressWarnings("unchecked")

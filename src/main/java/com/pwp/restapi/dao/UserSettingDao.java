@@ -11,6 +11,6 @@ public interface UserSettingDao {
 	 
     public Boolean addUserSetting(Setting u);
     public List<UserSetting> getUserSettings(User u);
-    public Boolean updateUserSetting(User user, Setting setting, int status);
+    public Boolean updateUserSetting(UserSetting us);
     
 }

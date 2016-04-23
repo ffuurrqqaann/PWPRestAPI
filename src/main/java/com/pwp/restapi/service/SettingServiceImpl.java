@@ -33,5 +33,11 @@ public class SettingServiceImpl implements SettingService {
 		
 		return isSettingAdded;
 	}
+
+	public Setting getSettingById(Setting s) {
+		// TODO Auto-generated method stub
+		Setting setting = this.settingDAO.getSetting(s);
+		return setting;
+	}
 	
 }

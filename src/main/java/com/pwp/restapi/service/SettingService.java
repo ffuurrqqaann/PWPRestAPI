@@ -9,5 +9,6 @@ public interface SettingService {
 	
 	public List<Setting> getSettingList();
 	public Boolean addSetting(Setting s);
+	public Setting getSettingById(Setting s);
 	
 }

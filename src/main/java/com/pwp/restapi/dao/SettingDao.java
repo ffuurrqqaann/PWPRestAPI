@@ -12,5 +12,6 @@ public interface SettingDao {
 	 
     public Boolean addSetting(Setting s);
     public List<Setting> getSettingList();
+    public Setting getSetting(Setting s);
     
 }

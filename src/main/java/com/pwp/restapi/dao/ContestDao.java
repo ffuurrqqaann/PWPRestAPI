@@ -10,5 +10,5 @@ public interface ContestDao {
 	 
     public Boolean addContest(Contest c, int userId);
     public List<Contest> getAllContests();
-    
+    public Contest getContest(Contest c);
 }

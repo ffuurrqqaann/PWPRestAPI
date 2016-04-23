@@ -8,7 +8,7 @@ import com.pwp.restapi.model.UserSetting;
 
 public interface UserSettingService {
 
-	public Boolean updateUserSetting(User user, Setting setting, int status);
+	public Boolean updateUserSetting(UserSetting us);
 	public List<UserSetting> getUserSettings(User u);
 	
 }

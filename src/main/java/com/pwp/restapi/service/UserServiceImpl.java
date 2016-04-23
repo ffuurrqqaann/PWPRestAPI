@@ -47,5 +47,14 @@ public class UserServiceImpl implements UserService {
 		else {
 			return false;
 		}
-	}	
+	}
+	
+	public User getUserById( User u ) {
+		
+		//getting user from user dao by user id.
+		User user = this.userDAO.getUser(u);
+		
+		return user;
+	}
+	
 }

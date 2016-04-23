@@ -56,4 +56,20 @@ public class SettingDaoImpl implements SettingDao {
 
 		return settingList;
 	}
+
+	@SuppressWarnings("unchecked")
+	public Setting getSetting(Setting s) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+
+		List<Setting> settingList = session.createQuery(" from Setting WHERE id="+s.getId()).list();
+		for(Setting setting : settingList){
+			logger.info("Setting List::"+setting);
+		}
+
+		if(settingList.size()>0)
+			return settingList.get(0);
+		else
+			return null;
+	}
 }
