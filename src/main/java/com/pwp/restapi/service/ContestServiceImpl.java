@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.pwp.restapi.dao.ContestDao;
 import com.pwp.restapi.dao.UserDao;
+import com.pwp.restapi.model.Category;
 import com.pwp.restapi.model.Contest;
 import com.pwp.restapi.model.User;
 
@@ -40,5 +41,13 @@ public class ContestServiceImpl implements ContestService {
 		Contest contest = this.contestDAO.getContest(c);
 		
 		return contest;
+	}
+
+	public List<Contest> getContestByCategoryId(Category c) {
+		// TODO Auto-generated method stub
+		
+		List<Contest> contestList = this.contestDAO.getContestsByCategory(c);
+		
+		return contestList;
 	}
 }

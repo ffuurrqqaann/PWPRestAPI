@@ -8,5 +8,5 @@ public interface CategoryDao {
 	 
     public Boolean addCategory(Category s);
     public List<Category> getCategoryList();
-    
+    public Category getCategory(Category c);
 }

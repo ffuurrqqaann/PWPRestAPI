@@ -35,4 +35,11 @@ public class CategoryServiceImpl implements CategoryService {
 		return category;
 	}
 
+	public Category getCategoryById(Category c) {
+		// TODO Auto-generated method stub
+		Category category = this.categoryDAO.getCategory(c);
+		
+		return category;
+	}
+
 }

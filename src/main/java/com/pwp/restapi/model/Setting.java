@@ -31,7 +31,7 @@ public class Setting {
 	@Column(name="updated")
 	private String updated;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "setting")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "setting")
 	private
 	Set<UserSetting> userSetting = new HashSet<UserSetting>(0);
 

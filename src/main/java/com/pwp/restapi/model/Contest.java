@@ -24,7 +24,10 @@ public class Contest {
 	
 	@Column(name="description")
 	private String description;
-		
+	
+	@Column(name="category")
+	private int category;
+	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="creator")
 	private User user;
@@ -85,5 +88,12 @@ public class Contest {
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public int getCategory() {
+		return category;
+	}
+	public void setCategory(int category) {
+		this.category = category;
 	}
 }

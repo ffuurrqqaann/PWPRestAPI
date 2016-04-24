@@ -71,4 +71,11 @@ public class UserSetting {
 	public void setUpdated(String updated) {
 		this.updated = updated;
 	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 }

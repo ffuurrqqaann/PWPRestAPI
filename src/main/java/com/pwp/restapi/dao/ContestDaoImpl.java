@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.pwp.restapi.model.Category;
 import com.pwp.restapi.model.Contest;
 import com.pwp.restapi.model.User;
 
@@ -59,13 +60,24 @@ public class ContestDaoImpl implements ContestDao {
 	@SuppressWarnings("unchecked")
 	public Contest getContest(Contest c) {
 		// TODO Auto-generated method stub
+		Contest contest = null;
+		
 		Session session = this.sessionFactory.getCurrentSession();
 
 		List<Contest> contestList = session.createQuery(" from Contest WHERE id="+c.getId()).list();
-		for(Contest contest : contestList) {
-			logger.info("Contest List::"+contest);
-		}
+		if( contestList.size()>0 )
+			contest = contestList.get(0);
 
-		return contestList.get(0);
+		return contest;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Contest> getContestsByCategory(Category c) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+		
+		List<Contest> contestList = session.createQuery(" from Contest WHERE category="+c.getId()).list();
+		
+		return contestList;		
 	}
 }

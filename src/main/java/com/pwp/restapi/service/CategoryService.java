@@ -9,5 +9,5 @@ public interface CategoryService {
 
 	public Boolean addCategory(Category c);
 	public List<Category> getCategoryList();
-	
+	public Category getCategoryById(Category c);
 }

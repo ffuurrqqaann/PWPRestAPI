@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pwp.restapi.model.Category;
+import com.pwp.restapi.model.User;
 
 @Repository
 @Transactional
@@ -49,5 +50,18 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 
 		return categoryList;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Category getCategory(Category c) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+			
+		List<Category> categoryList = session.createQuery(" from Category WHERE id="+c.getId()).list();
+			
+		if(categoryList.size()>0)
+			return categoryList.get(0);
+		else
+			return null;
 	}
 }

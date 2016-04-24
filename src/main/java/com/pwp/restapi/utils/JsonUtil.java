@@ -66,7 +66,7 @@ public class JsonUtil {
 					@SuppressWarnings("rawtypes")
 					Map.Entry pair = (Map.Entry)itData.next();
 
-					itemsDataObj = itemsDataObj.concat("{\"rel\" : \""+pair.getKey()+"\", \"href\" : \""+pair.getValue()+"\", \"prompt\" : \""+pair.getKey()+"\"}");
+					itemsDataObj = itemsDataObj.concat("{\"name\" : \""+pair.getKey()+"\", \"value\" : \""+pair.getValue()+"\", \"prompt\" : \""+pair.getKey()+"\"}");
 
 					if( itData.hasNext() )
 						itemsDataObj = itemsDataObj.concat(",");
@@ -122,8 +122,8 @@ public class JsonUtil {
 			while (itTemplate.hasNext()) {
 				@SuppressWarnings("rawtypes")
 				Map.Entry pair = (Map.Entry)itTemplate.next();
-
-				dataObjs = dataObjs.concat("{\""+pair.getKey()+"\" : " +"\""+pair.getValue()+"\", \"prompt\" : \""+pair.getKey()+"\"}");
+				
+				dataObjs = dataObjs.concat("{\"name\" : \""+pair.getKey()+"\", \"value\" : \""+pair.getValue()+"\", \"prompt\" : \""+pair.getKey()+"\"}");
 
 				if( itTemplate.hasNext() )
 					dataObjs = dataObjs.concat(",");

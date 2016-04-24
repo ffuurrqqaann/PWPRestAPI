@@ -49,6 +49,7 @@ public class UrlUtil {
 		String appUri = uri.toString();
 		
 		appUri = appUri.concat(project);
+		appUri = appUri.concat("/api");
 		appUri = appUri.concat(apiVersion);
 		
 		return appUri;
