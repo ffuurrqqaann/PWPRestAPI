@@ -254,7 +254,7 @@ public class PsoasController {
 	 * @param	Model model, HttpServletRequest request, @PathVariable("id") userId
 	 * @return	String
 	 */
-	@RequestMapping(value="/usersettings/user/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/user/{id}/settings/", method=RequestMethod.GET)
 	@ResponseBody
 	public String getAllUserSettings (Model model, HttpServletRequest request, @PathVariable("id") String userId ) {
 
@@ -833,7 +833,8 @@ public class PsoasController {
 	 * @param	Model model, HttpServletRequest request, @RequestParam data
 	 * @return	String
 	 */
-	@RequestMapping(value="/vote/", method=RequestMethod.POST)
+	@RequestMapping(value="/categories/{categoryId}/contests/{contestId}/vote/", method=RequestMethod.POST) ///categories/category_id/contest
+	
 	@ResponseBody
 	public String addNewVote (Model model, HttpServletRequest request, @RequestParam("data") String data) {
 
@@ -902,7 +903,7 @@ public class PsoasController {
 	 * @param	Model model, HttpServletRequest request, @RequestParam data
 	 * @return	String
 	 */
-	@RequestMapping(value="/updatesetting/user/{userId}/setting/{settingId}/status/{status}/", method=RequestMethod.PUT)
+	@RequestMapping(value="/user/{userId}/setting/{settingId}/status/{status}/", method=RequestMethod.PUT)
 	@ResponseBody
 	public String updateSetting (Model model, HttpServletRequest request, @PathVariable("userId") String userId, @PathVariable("settingId") String idSetting, @PathVariable("status") String status) {
 
