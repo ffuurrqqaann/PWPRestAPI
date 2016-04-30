@@ -3,16 +3,15 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.comag10.crowdflower.CategoryTest">
+      <class name="com.comag10.crowdflower.AnnouncementTest">
         <methods>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextBeforeTestClass"/>
-          <include name="getCategoriesTest"/>
-          <include name="addCategoryTest"/>
           <include name="springTestContextPrepareTestInstance"/>
           <include name="springTestContextAfterTestMethod"/>
+          <include name="getAnnouncementsTest"/>
         </methods>
-      </class> <!-- com.comag10.crowdflower.CategoryTest -->
+      </class> <!-- com.comag10.crowdflower.AnnouncementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

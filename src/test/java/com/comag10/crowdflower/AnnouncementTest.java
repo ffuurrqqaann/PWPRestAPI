@@ -14,26 +14,29 @@ import com.pwp.restapi.model.Announcement;
 import com.pwp.restapi.model.Contest;
 import com.pwp.restapi.service.AnnouncementService;
 import com.pwp.restapi.service.ContestService;
+import com.pwp.restapi.utils.HttpUtils;
 
 @Test
 @ContextConfiguration(locations = {"classpath:spring-test-config.xml"})
 public class AnnouncementTest extends AbstractTestNGSpringContextTests {
-
+	
+	public String ANNOUNCEMENTS_ENDPOINT = "http://localhost:8080/PWPRestAPI/api/v1/announcements/";
+	
 	@Autowired
 	private AnnouncementService announcementService;
 
 	@Test()
-	public void getAnnouncementsTest() {
+	public void getAnnouncementsTest() throws Exception {
 		System.out.println( "Current Execution getAnnouncementsTest()" );
-		System.out.println( "Executing getAnnouncementsTest() to return the contests that users have created." );
+		System.out.println( "Executing getAnnouncementsTest() to return the announcements that users have created." );
 		
-		List<Announcement> announcement = this.announcementService.announcementList();
+		String response = HttpUtils.sendHttpGet(ANNOUNCEMENTS_ENDPOINT);
 		
 		System.out.println( "Comparing the size of the records returned from the announcement database table." );
-		Assert.assertEquals(3, announcement.size());
+		Assert.assertNotEquals("", response);
 	}
 	
-	@Test()
+	/*@Test()
 	public void addAnnouncementTest() {
 		System.out.println( "Current Execution addAnnouncementTest()" );
 		System.out.println( "Executing addAnnouncementTest() to create an announcement." );
@@ -62,5 +65,5 @@ public class AnnouncementTest extends AbstractTestNGSpringContextTests {
 		System.out.println( "User "+announcementCreated );
 		
 		Assert.assertEquals("Created", announcementCreated);
-	}
+	}*/
 }
