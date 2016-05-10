@@ -41,12 +41,12 @@ public class JsonUtil {
 			}
 		}
 		collectionJsonStr = collectionJsonStr.concat(linkStr);
-		collectionJsonStr = collectionJsonStr.concat("],");
+		collectionJsonStr = collectionJsonStr.concat("]");
 
 		//json+collection format's items node creation.
 		String items = "";
 		if(itemCount>0) {
-			items = "\"items\" : [";
+			items = ",\"items\" : [";
 
 			for( int i=0; i<itemCount; i++ ) {
 				items = items.concat("{");

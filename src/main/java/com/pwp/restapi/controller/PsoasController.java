@@ -644,7 +644,8 @@ public class PsoasController {
 
 			//item's data.
 			Map<String, String> itemData = new HashMap<String, String>();
-
+			
+			itemData.put("id", Integer.toString(contest.getId()));
 			itemData.put("title", contest.getTitle());
 			itemData.put("description", contest.getDescription());
 			itemData.put("category",  Integer.toString(contest.getCategory()));
