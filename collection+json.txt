@@ -1,0 +1,177 @@
+http://amundsen.com/media-types/collection/examples/
+
+
+{ "collection" :
+  {
+    "version" : "1.0",
+    "href" : "http://example.org/friends/",
+    
+    "links" : [
+      {"rel" : "feed", "href" : "http://example.org/friends/rss"}
+    ],
+    
+    "items" : [
+      {
+        "href" : "http://example.org/friends/jdoe",
+        "data" : [
+          {"name" : "full-name", "value" : "J. Doe", "prompt" : "Full Name"},
+          {"name" : "email", "value" : "jdoe@example.org", "prompt" : "Email"}
+        ],
+        "links" : [
+          {"rel" : "blog", "href" : "http://examples.org/blogs/jdoe", "prompt" : "Blog"},
+          {"rel" : "avatar", "href" : "http://examples.org/images/jdoe", "prompt" : "Avatar", "render" : "image"}
+        ]
+      },
+      
+      {
+        "href" : "http://example.org/friends/msmith",
+        "data" : [
+          {"name" : "full-name", "value" : "M. Smith", "prompt" : "Full Name"},
+          {"name" : "email", "value" : "msmith@example.org", "prompt" : "Email"}
+        ],
+        "links" : [
+          {"rel" : "blog", "href" : "http://examples.org/blogs/msmith", "prompt" : "Blog"},
+          {"rel" : "avatar", "href" : "http://examples.org/images/msmith", "prompt" : "Avatar", "render" : "image"}
+        ]
+      },
+      
+      {
+        "href" : "http://example.org/friends/rwilliams",
+        "data" : [
+          {"name" : "full-name", "value" : "R. Williams", "prompt" : "Full Name"},
+          {"name" : "email", "value" : "rwilliams@example.org", "prompt" : "Email"}
+        ],
+        "links" : [
+          {"rel" : "blog", "href" : "http://examples.org/blogs/rwilliams", "prompt" : "Blog"},
+          {"rel" : "avatar", "href" : "http://examples.org/images/rwilliams", "prompt" : "Avatar", "render" : "image"}
+        ]
+      }      
+    ],
+    
+    "queries" : [
+      {"rel" : "search", "href" : "http://example.org/friends/search", "prompt" : "Search",
+        "data" : [
+          {"name" : "search", "value" : ""}
+        ]
+      }
+    ],
+    
+    "template" : {
+      "data" : [
+        {"name" : "full-name", "value" : "", "prompt" : "Full Name"},
+        {"name" : "email", "value" : "", "prompt" : "Email"},
+        {"name" : "blog", "value" : "", "prompt" : "Blog"},
+        {"name" : "avatar", "value" : "", "prompt" : "Avatar"}
+        
+      ]
+    }
+  } 
+}
+
+
+
+template representation
+
+
+{ "collection" :
+  {
+    "version" : "1.0",
+    "href" : "http://localhost:8080/PWPRestAPI/api/v1/user/",
+    
+    "template" : {
+		"data" : [
+		  {"name" : "user_id", "value" : "1"},
+		  {"name" : "email", "value" : "furqan@furqan.com"}
+		]
+	}
+  } 
+}
+
+
+post an item
+
+{ "template" : {
+    "data" : [
+      {"name" : "title", "value" : "test title"},
+      {"name" : "message", "value" : "test message from user"},
+      {"name" : "announcer", "value" : "1"},
+      {"name" : "publish", "value" : "2016-03-20 17:33:28"},
+	  {"name" : "created", "value" : "2016-03-20 17:33:28"},
+	  {"name" : "updated", "value" : "2016-03-20 17:33:28"}
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{ "collection" :
+  {
+    "version" : "1.0",
+    "href" : "http://localhost:8080/PWPRestAPI/api/v1/contest/",
+    
+    "links" : [
+      {"rel" : "user", "href" : "http://localhost:8080/PWPRestAPI/api/v1/users/"}
+	  {"rel" : "category", "href" : "http://localhost:8080/PWPRestAPI/api/v1/categories/"}
+    ],
+    
+    "items" : [
+      {
+        "href" : "http://localhost:8080/PWPRestAPI/api/v1/contest/{id}",
+        "data" : [
+          {"name" : "title", "value" : "Announcements", "prompt" : "Setting"},
+		  {"name" : "description", "value" : "2016-04-23 18:46:41", "prompt" : "Created"},
+		  {"name" : "category", "value" : "2016-04-23 18:46:41", "prompt" : "Updated"},
+		  {"name" : "creator", "value" : "Announcements", "prompt" : "Setting"},
+		  {"name" : "status", "value" : "2016-04-23 18:46:41", "prompt" : "Created"},
+		  {"name" : "created", "value" : "2016-04-23 18:46:41", "prompt" : "Updated"},
+		  {"name" : "updated", "value" : "2016-04-23 18:46:41", "prompt" : "Updated"}
+        ],
+        "links" : [
+          {"rel" : "category", "href" : "http://localhost:8080/PWPRestAPI/api/v1/category/{id}", "prompt" : "Category"},
+          {"rel" : "user", "href" : "http://localhost:8080/PWPRestAPI/api/v1/user/{id}/", "prompt" : "user"}
+        ]
+      }     
+    ],
+    "template" : {
+      "data" : [
+        {"name" : "title", "value" : "", "prompt" : "Title"},
+		{"name" : "description", "value" : "", "prompt" : "description"},
+		{"name" : "category", "value" : "", "prompt" : "category"},
+		{"name" : "creator", "value" : "", "prompt" : "creator"},
+		{"name" : "status", "value" : "", "prompt" : "status"},
+		{"name" : "created", "value" : "", "prompt" : "created"},
+		{"name" : "updated", "value" : "", "prompt" : "updated"}
+      ]
+    }
+  } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

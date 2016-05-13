@@ -8,5 +8,7 @@ public interface AnnouncementService {
 	
 	public List<Announcement> announcementList();
 	public Boolean addAnnouncement(Announcement a, int userId);
+	public Announcement getAnnouncement(int id);
+	public Boolean deleteAnnouncementById(Announcement a);
 	
 }

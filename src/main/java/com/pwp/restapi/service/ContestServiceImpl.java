@@ -13,41 +13,48 @@ import com.pwp.restapi.model.User;
 
 @Service("ContestService")
 public class ContestServiceImpl implements ContestService {
-	
+
 	@Autowired
 	private ContestDao contestDAO;
-	
+
 	public void setContestDAO(ContestDao contestDAO) {
 		this.contestDAO = contestDAO;
 	}
-	
+
 	public Boolean createContest(Contest contest, int userId) {
 		// TODO Auto-generated method stub
 		Boolean isContestAdded = this.contestDAO.addContest(contest, userId);
-		
+
 		return isContestAdded;
 	}
 
 	public List<Contest> getContestList() {
 		// TODO Auto-generated method stub
 		List<Contest> contests = this.contestDAO.getAllContests();
-		
+
 		return contests;
 	}
 
 	public Contest getContestById(Contest c) {
 		// TODO Auto-generated method stub
-		
+
 		Contest contest = this.contestDAO.getContest(c);
-		
+
 		return contest;
 	}
 
 	public List<Contest> getContestByCategoryId(Category c) {
 		// TODO Auto-generated method stub
-		
+
 		List<Contest> contestList = this.contestDAO.getContestsByCategory(c);
-		
+
 		return contestList;
+	}
+
+	public Boolean deleteContestById(Contest c) {
+		// TODO Auto-generated method stub
+		Boolean isContestDeleted = this.contestDAO.deleteContest(c);
+
+		return isContestDeleted;
 	}
 }

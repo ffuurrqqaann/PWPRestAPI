@@ -8,5 +8,5 @@ public interface UserService {
 	public Boolean signup(User u);
 	public Boolean checkUserExist(User u);
 	public User getUserById(User u);
-	
+	public Boolean updateEmail(User u);
 }

@@ -46,7 +46,7 @@ public class AnnouncementDaoImpl implements AnnouncementDao {
 
 		return true;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Announcement> getAnnouncementList() {
 		// TODO Auto-generated method stub
@@ -58,5 +58,30 @@ public class AnnouncementDaoImpl implements AnnouncementDao {
 		}
 
 		return announcementList;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Announcement getAnnouncementbyId(int id) {
+		// TODO Auto-generated method stub
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Announcement> announcementList = session.createQuery(" FROM Announcement WHERE id="+id).list();
+
+		if(announcementList.size()>0)
+			return announcementList.get(0);
+		else
+			return null;
+	}
+
+	public Boolean deleteAnnouncement(Announcement a) {
+		// TODO Auto-generated method stub
+		try {
+			Session session = this.sessionFactory.getCurrentSession();
+			session.delete(a);
+		} catch(Exception e) {
+			System.out.println("delete announcement exception message"+e.getMessage());
+			return false;
+		}
+		
+		return true;
 	}
 }

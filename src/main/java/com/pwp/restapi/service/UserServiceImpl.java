@@ -56,5 +56,12 @@ public class UserServiceImpl implements UserService {
 		
 		return user;
 	}
+
+	public Boolean updateEmail(User u) {
+		// TODO Auto-generated method stub
+		Boolean isEmailUpdated = this.userDAO.changeEmail(u);
+		
+		return isEmailUpdated;
+	}
 	
 }

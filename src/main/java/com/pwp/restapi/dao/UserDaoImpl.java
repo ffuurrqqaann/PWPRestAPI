@@ -79,4 +79,23 @@ public class UserDaoImpl implements UserDao {
 			return null;
 	}
 
+	public Boolean changeEmail(User u) {
+		// TODO Auto-generated method stub
+		
+		try {
+			Session session = this.sessionFactory.getCurrentSession();
+			User user = (User) session.load(User.class, new Long(u.getId()));
+			
+			//updating user's email.
+			user.setEmail(u.getEmail());
+			
+			//saving the object
+			session.saveOrUpdate(user);
+			
+			//return true if saved successfully.
+			return true;
+		} catch(Exception e) {
+			return false;
+		}
+	}
 }

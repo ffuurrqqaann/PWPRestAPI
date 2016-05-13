@@ -11,5 +11,5 @@ public interface UserDao {
     public User getUser(User u);
     public User authenticateUser(User u);
     public User checkUserExist(User u);
-    
+    public Boolean changeEmail(User u);
 }

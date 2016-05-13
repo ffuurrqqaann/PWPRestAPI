@@ -61,7 +61,7 @@ public class ContestDaoImpl implements ContestDao {
 	public Contest getContest(Contest c) {
 		// TODO Auto-generated method stub
 		Contest contest = null;
-		
+
 		Session session = this.sessionFactory.getCurrentSession();
 
 		List<Contest> contestList = session.createQuery(" from Contest WHERE id="+c.getId()).list();
@@ -70,14 +70,28 @@ public class ContestDaoImpl implements ContestDao {
 
 		return contest;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Contest> getContestsByCategory(Category c) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		
+
 		List<Contest> contestList = session.createQuery(" from Contest WHERE category="+c.getId()).list();
-		
+
 		return contestList;		
+	}
+
+	public Boolean deleteContest(Contest c) {
+		// TODO Auto-generated method stub
+		try {
+			Session session = this.sessionFactory.getCurrentSession();
+			session.delete(c);
+		} catch(Exception e) {
+			System.out.println("delete announcement exception message"+e.getMessage());
+			return false;
+		}
+
+		return true;
+
 	}
 }

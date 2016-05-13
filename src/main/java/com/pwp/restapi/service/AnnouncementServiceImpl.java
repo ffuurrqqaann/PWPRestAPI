@@ -32,4 +32,18 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 		return isAnnoucementAdded;
 	}
 
+	public Announcement getAnnouncement(int aId) {
+		// TODO Auto-generated method stub
+		Announcement announcement = this.announcementDAO.getAnnouncementbyId(aId);
+		
+		return announcement;
+	}
+
+	public Boolean deleteAnnouncementById(Announcement a) {
+		// TODO Auto-generated method stub
+		Boolean isAnnouncementDeleted = this.announcementDAO.deleteAnnouncement(a);
+		
+		return isAnnouncementDeleted;
+	}
+
 }

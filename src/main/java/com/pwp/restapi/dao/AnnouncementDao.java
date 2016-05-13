@@ -12,5 +12,7 @@ public interface AnnouncementDao {
 	 
     public Boolean addAnnouncement(Announcement a, int userId);
     public List<Announcement> getAnnouncementList();
+    public Announcement getAnnouncementbyId(int id);
+    public Boolean deleteAnnouncement(Announcement a);
     
 }
