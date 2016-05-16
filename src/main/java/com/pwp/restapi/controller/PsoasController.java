@@ -40,6 +40,7 @@ import com.pwp.restapi.service.SettingService;
 import com.pwp.restapi.service.UserService;
 import com.pwp.restapi.service.UserSettingService;
 import com.pwp.restapi.service.VoteService;
+import com.pwp.restapi.utils.EmailValidator;
 import com.pwp.restapi.utils.JsonUtil;
 import com.pwp.restapi.utils.UrlUtil;
 
@@ -209,7 +210,8 @@ public class PsoasController {
 
 			//item's data.
 			Map<String, String> itemData = new HashMap<String, String>();
-
+			
+			itemData.put("id", Integer.toString(announcement.getId()));
 			itemData.put("title", announcement.getTitle());
 			itemData.put("message", announcement.getMessage());
 			itemData.put("announcer", Integer.toString(announcement.getUser().getId()));
@@ -759,9 +761,9 @@ public class PsoasController {
 	 * @param	Model model, HttpServletRequest request, @RequestParam data
 	 * @return	String
 	 */
-	@RequestMapping(value="/contest/", method=RequestMethod.POST)
+	@RequestMapping(value="/category/{catId}/contest/", method=RequestMethod.POST)
 	@ResponseBody
-	public String addNewContest (Model model, HttpServletRequest request, @RequestParam("data") String data) {
+	public String addNewContest (Model model, HttpServletRequest request, @RequestParam("data") String data, @PathVariable("catId") String catId) {
 
 		//endpoint data param
 		String cjData = data;
@@ -790,6 +792,9 @@ public class PsoasController {
 
 			//contest announcer.
 			int userId = Integer.parseInt(dataMap.get("creator").getValue().get().asString());
+			
+			//contest category
+			contest.setCategory(Integer.parseInt(catId));
 
 			//preparing user for contest's user.
 			User user = new User();
@@ -834,7 +839,7 @@ public class PsoasController {
 	 * @param	Model model, HttpServletRequest request, @RequestParam data
 	 * @return	String
 	 */
-	@RequestMapping(value="/categories/{categoryId}/contests/{contestId}/vote/", method=RequestMethod.POST) ///categories/category_id/contest
+	@RequestMapping(value="/category/{categoryId}/contest/{contestId}/vote/", method=RequestMethod.POST) ///categories/category_id/contest
 	
 	@ResponseBody
 	public String addNewVote (Model model, HttpServletRequest request, @RequestParam("data") String data) {
@@ -968,6 +973,159 @@ public class PsoasController {
 			e.printStackTrace();
 		}
 
+		return response;
+	}
+	
+	/**
+	 * @author	furqan
+	 * @param	Model model, HttpServletRequest request, @PathVariable announcementId
+	 * @return	String
+	 */
+	@RequestMapping(value="/announcement/{announcementId}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public String deleteAnnouncement (Model model, @PathVariable("announcementId") String announcementId) {
+
+		//endpoint response.
+		String response = "";
+
+		//announcement id.
+		int aId = Integer.parseInt(announcementId);
+
+		//parsing the collection json.
+		try {
+			
+			//check whether the announcement exist.
+			Announcement announcement = this.announcementService.getAnnouncement(aId);
+			
+			if(announcement==null) {
+				response = "Announcement not found";
+				
+				return response;
+			}
+			
+			//set announcement object to delete.
+			Announcement deleteAnnouncement = new Announcement();
+			deleteAnnouncement.setId(aId);
+			
+			Boolean isAnnouncementDeleted = this.announcementService.deleteAnnouncementById(deleteAnnouncement);
+			
+			if(isAnnouncementDeleted) {
+				response = "Announcement has been deleted successfully.";
+			} else {
+				response = "Problem deleting announcement.";
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return response;
+	}
+	
+	/**
+	 * @author	furqan
+	 * @param	Model model, HttpServletRequest request, @PathVariable announcementId
+	 * @return	String
+	 */
+	@RequestMapping(value="/category/{catId}/contest/{contestId}", method=RequestMethod.DELETE)
+	@ResponseBody
+	public String deleteContest (Model model, @PathVariable("contestId") String contestId, @PathVariable("catId") String catId) {
+
+		//endpoint response.
+		String response = "";
+
+		//announcement id.
+		int conId = Integer.parseInt(contestId);
+		
+		//contest object.
+		Contest con = new Contest();
+		con.setId(conId);
+
+		//parsing the collection json.
+		try {
+			
+			//check whether the contest exist.
+			Contest contest = this.contestService.getContestById(con);
+			
+			if(contest==null) {
+				response = "Contest not found";
+				
+				return response;
+			}
+			
+			//check whether the announcement is deleted.
+			Boolean isContestDeleted = this.contestService.deleteContestById(con);
+			
+			if(isContestDeleted) {
+				response = "Contest has been deleted successfully.";
+			} else {
+				response = "Problem deleting contest.";
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return response;
+	}
+
+	/**
+	 * @author	furqan
+	 * @param	Model model, HttpServletRequest request, @PathVariable announcementId
+	 * @return	String
+	 */
+	@RequestMapping(value="/user/{userId}/{email}/", method=RequestMethod.PUT)
+	@ResponseBody
+	public String updateEmail(Model model, HttpServletRequest request, @PathVariable("userId") String id, @PathVariable("email") String email) {
+
+		//endpoint response.
+		String response = "";
+		
+		try {
+			//get user new email.
+			//String email = email;
+
+			//announcement announcer.
+			int userId = Integer.parseInt(id);
+			
+			User user = new User();
+			user.setId(userId);
+			
+			user = this.userService.getUserById(user);
+			
+			//check if user exists??
+			if( user==null ) {
+				return "user id not found.";
+			}
+			
+			user.setEmail(email);
+			
+			//Initializing Email Validator.
+			EmailValidator emailValidator = new EmailValidator();
+			
+			//check email validation.
+			Boolean isEmailValid = emailValidator.validate(email);
+			
+			//return back error if email not valid.
+			if( !isEmailValid ) {
+				return "Email is not valid.";
+			}
+			
+			//update user profile email.
+			Boolean isUserUpdated = this.userService.updateEmail(user);
+			
+			if( isUserUpdated ) {
+				response = "The user email updated successfully.";
+			} else {
+				response = "Problem updating email.";
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 		return response;
 	}
 }

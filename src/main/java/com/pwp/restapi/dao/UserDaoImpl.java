@@ -84,7 +84,7 @@ public class UserDaoImpl implements UserDao {
 		
 		try {
 			Session session = this.sessionFactory.getCurrentSession();
-			User user = (User) session.load(User.class, new Long(u.getId()));
+			User user = (User) session.load(User.class, new Integer(u.getId()));
 			
 			//updating user's email.
 			user.setEmail(u.getEmail());
@@ -95,6 +95,9 @@ public class UserDaoImpl implements UserDao {
 			//return true if saved successfully.
 			return true;
 		} catch(Exception e) {
+			
+			System.out.println(e.getMessage());
+			
 			return false;
 		}
 	}
