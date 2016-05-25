@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<users id="1" name="furqan" email="ahmedfurqan88@gmail.com" pass_hash="df4358b3b8209d8123ac6384d02ef8d0" coins="5" is_admin="0" is_active="1" />
+	<contests id="1" title="test title" description="test description" category="1" creator="1" status="1" />
+	<contests id="2" title="test title 1" description="test description 1" category="1" creator="1" status="1" />
+	<votes id="1" user_id="1" contest="1" rating="1" />
+	<votes id="2" user_id="1" contest="1" rating="2" />
+	<votes id="3" user_id="1" contest="1" rating="3" />
+	<announcements id="1" title="test anncmnts title" message="test" announcer="1" />
+	<announcements id="2" title="test anncmnts title2" message="test2" announcer="1" />
+	<settings id="1" setting="announcements"/>
+	<settings id="2" setting="volume"/>
+	<user_settings id="1" user_id="1" setting="1" status="0" />
+	<user_settings id="2" user_id="1" setting="2" status="0" />
+	
+</dataset>
