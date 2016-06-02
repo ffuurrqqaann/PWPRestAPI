@@ -1,15 +1,9 @@
 package com.pwp.restapi.controller;
 
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.net.URLDecoder;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -19,8 +13,6 @@ import net.hamnaberg.funclite.Optional;
 import net.hamnaberg.json.Error;
 import net.hamnaberg.json.*;
 import net.hamnaberg.json.parser.CollectionParser;
-import net.hamnaberg.funclite.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -32,8 +24,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.google.gson.JsonObject;
 import com.pwp.restapi.model.*;
 import com.pwp.restapi.service.AnnouncementService;
 import com.pwp.restapi.service.CategoryService;
@@ -398,7 +388,12 @@ public class PsoasController {
 
 		if( category==null ) { //return 404 if user not found.
 			String error = new Collection.Builder(CONTEST_URI).withError(Error.create("Not Found",  "404", "Category Id not found.")).build().asJson().toString();
-			return error;
+			
+			String res = "{\"collection\" : ";
+			res+=error;
+			res+="}";
+			
+			return res;
 		}
 
 		//preparing category's contest object.
@@ -409,7 +404,12 @@ public class PsoasController {
 
 		if( contest==null ) { //return 404 if user not found.
 			String error = new Collection.Builder(CONTEST_URI).withError(Error.create("Not Found",  "404", "Contest Id not found.")).build().asJson().toString();
-			return error;
+			
+			String res = "{\"collection\" : ";
+			res+=error;
+			res+="}";
+			
+			return res;
 		}
 
 		System.out.println( "user id is"+contest.getUser().getId() );
@@ -719,11 +719,13 @@ public class PsoasController {
 	@ResponseBody
 	public String addNewAnnouncements (Model model, HttpServletRequest request, @RequestParam("data") String data) {
 
-		//endpoint data param
-		String cjData = data;
-
 		//parsing the collection json.
 		try {
+			
+			//endpoint data param
+			String cjData = URLDecoder.decode(data,"UTF-8");
+			
+			//parse collection.
 			Collection collection = new CollectionParser().parse(cjData);
 
 			//gettting the template part from json.
@@ -731,18 +733,22 @@ public class PsoasController {
 
 			//getting the data from the template as Map.
 			Map<String, Property> dataMap = template.get().getData().getDataAsMap();
-
+			
+			String title 		= dataMap.get("title").getValue().get().asString();
+			String message 		= dataMap.get("message").getValue().get().asString();
+			String announcer 	= dataMap.get("announcer").getValue().get().asString();
+			
 			//preparing announcement object.
 			Announcement announcement = new Announcement();
 
 			//announcement title
-			announcement.setTitle(dataMap.get("title").getValue().get().asString());
+			announcement.setTitle(title);
 
 			//announcement message.
-			announcement.setMessage(dataMap.get("message").getValue().get().asString());
+			announcement.setMessage(message);
 
 			//announcement announcer.
-			int userId = Integer.parseInt(dataMap.get("announcer").getValue().get().asString());
+			int userId = Integer.parseInt(announcer);
 
 			//preparing user for announcement's announcer.
 			User user = new User();
@@ -761,8 +767,13 @@ public class PsoasController {
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			String error = new Collection.Builder(ANNOUNCEMENTS_URI).withError(Error.create("Exception",  String.valueOf(e.hashCode()), e.getMessage())).build().asJson().toString();
-			return error;
+			String error = new Collection.Builder(ANNOUNCEMENT_URI).withError(Error.create("Bad Request",  "400", "Request was malformed.")).build().asJson().toString();
+			
+			String res = "{\"collection\" : ";
+			res+=error;
+			res+="}";
+			
+			return res;
 		}
 
 		return "";
@@ -840,7 +851,13 @@ public class PsoasController {
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			String error = new Collection.Builder(ANNOUNCEMENT_URI).withError(Error.create("Bad Request",  "400", "Request was malformed.")).build().asJson().toString();
+			
+			String res = "{\"collection\" : ";
+			res+=error;
+			res+="}";
+			
+			return res;
 		}
 
 		return response;
@@ -911,7 +928,13 @@ public class PsoasController {
 				response = "Problem Adding New Vote.";
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			String error = new Collection.Builder(ANNOUNCEMENT_URI).withError(Error.create("Bad Request",  "400", "Request was malformed.")).build().asJson().toString();
+			
+			String res = "{\"collection\" : ";
+			res+=error;
+			res+="}";
+			
+			return res;
 		}
 
 		return response;
@@ -1030,9 +1053,14 @@ public class PsoasController {
 			Announcement announcement = this.announcementService.getAnnouncement(aId);
 
 			if(announcement==null) {
-
+				
 				response = new Collection.Builder(ANNOUNCEMENT_URI).withError(Error.create("Not Found",  "404", "Announcement Id not found.")).build().asJson().toString();
-				return response;
+				
+				String res = "{\"collection\" : ";
+				res+=response;
+				res+="}";
+				
+				return res;
 			}
 
 			//set announcement object to delete.
@@ -1045,14 +1073,24 @@ public class PsoasController {
 				response = "";
 			} else {
 				response = new Collection.Builder(ANNOUNCEMENT_URI).withError(Error.create("Not Deleted",  "500", "Problem Deleting announcement.")).build().asJson().toString();
-				return response;
+				
+				String res = "{\"collection\" : ";
+				res+=response;
+				res+="}";
+				
+				return res;
 			}
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 			response = new Collection.Builder(ANNOUNCEMENT_URI).withError(Error.create("Error Occured",  "500", e.getMessage())).build().asJson().toString();
-			return response;
+			
+			String res = "{\"collection\" : ";
+			res+=response;
+			res+="}";
+			
+			return res;
 		}
 
 		return response;
@@ -1085,7 +1123,12 @@ public class PsoasController {
 
 			if(contest==null) {
 				response = new Collection.Builder(CONTEST_URI).withError(Error.create("Not Found",  "404", "Contest not found.")).build().asJson().toString();
-				return response;
+				
+				String res = "{\"collection\" : ";
+				res+=response;
+				res+="}";
+				
+				return res;
 			}
 
 			//check whether the announcement is deleted.
@@ -1129,7 +1172,12 @@ public class PsoasController {
 			//check if user exists??
 			if( user==null ) {
 				response = new Collection.Builder(USER_URI).withError(Error.create("Not Found",  "404", "User id not found.")).build().asJson().toString();
-				return response;
+				
+				String res = "{\"collection\" : ";
+				res+=response;
+				res+="}";
+				
+				return res;
 			}
 			
 			//splitting the body.
@@ -1160,7 +1208,12 @@ public class PsoasController {
 			//return back error if email not valid.
 			if( !isEmailValid ) {
 				response = new Collection.Builder(CONTEST_URI).withError(Error.create("Bad Request",  "400", "User email is not valid.")).build().asJson().toString();
-				return response;
+				
+				String res = "{\"collection\" : ";
+				res+=response;
+				res+="}";
+				
+				return res;
 			}
 
 			//update user profile email.

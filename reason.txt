@@ -1,0 +1,2 @@
+1. Need to change the content type of the webservices.
+2. the reason in the webservices = email validation.

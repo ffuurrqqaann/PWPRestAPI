@@ -1,141 +1,857 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="1" failed="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="32" passed="32">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5228" started-at="2016-04-24T20:00:17Z" finished-at="2016-04-24T20:00:22Z">
+  <suite name="Default suite" duration-ms="96794" started-at="2016-06-02T09:05:53Z" finished-at="2016-06-02T09:07:30Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5228" started-at="2016-04-24T20:00:17Z" finished-at="2016-04-24T20:00:22Z">
-      <class name="com.comag10.crowdflower.AnnouncementTest">
-        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.comag10.crowdflower.AnnouncementTest@73383d8a]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="102" started-at="2016-04-24T23:00:17Z" finished-at="2016-04-24T23:00:17Z">
+    <test name="Default test" duration-ms="96794" started-at="2016-06-02T09:05:53Z" finished-at="2016-06-02T09:07:30Z">
+      <class name="com.pwp.restapi.PsoasRestApiTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="36" started-at="2016-06-02T12:05:53Z" finished-at="2016-06-02T12:05:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="FAIL" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.comag10.crowdflower.AnnouncementTest@73383d8a]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="0" started-at="2016-04-24T23:00:17Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-04-24T23:00:17Z">
-          <exception class="java.lang.IllegalStateException">
-            <message>
-              <![CDATA[Failed to load ApplicationContext]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalStateException: Failed to load ApplicationContext
-	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
-	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
-	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:313)
-	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextPrepareTestInstance(AbstractTestNGSpringContextTests.java:130)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
-	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:175)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:107)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:207)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:178)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping#0': Invocation of init method failed; nested exception is org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.dao.UserDaoImpl] for bean with name 'userDAO' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.UserDaoImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.dao.UserDaoImpl] for bean with name 'userDAO' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.UserDaoImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.service.UserServiceImpl] for bean with name 'userService' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.service.UserServiceImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.dao.UserSettingDaoImpl] for bean with name 'userSettingDAO' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.UserSettingDaoImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.service.UserSettingServiceImpl] for bean with name 'userSettingService' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.service.UserSettingServiceImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.dao.ContestDaoImpl] for bean with name 'contestDAO' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.ContestDaoImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.service.ContestServiceImpl] for bean with name 'contestService' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.service.ContestServiceImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.dao.VoteDaoImpl] for bean with name 'voteDAO' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.VoteDaoImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.service.VoteServiceImpl] for bean with name 'voteService' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.service.VoteServiceImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.dao.AnnouncementDaoImpl] for bean with name 'announcementDAO' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.AnnouncementDaoImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.service.AnnouncementServiceImpl] for bean with name 'announcementService' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.service.AnnouncementServiceImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.dao.SettingDaoImpl] for bean with name 'settingDAO' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.SettingDaoImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.service.SettingServiceImpl] for bean with name 'settingService' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.service.SettingServiceImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.dao.CategoryDaoImpl] for bean with name 'categoryDAO' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.CategoryDaoImpl
-Related cause: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.service.CategoryServiceImpl] for bean with name 'categoryService' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.service.CategoryServiceImpl
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1486)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:524)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:461)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:295)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:223)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:292)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:194)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:607)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:932)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:479)
-	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:106)
-	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:57)
-	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100)
-	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:248)
-	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:124)
-	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
-	... 28 more
-Caused by: org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [com.comag10.crowdflower.dao.UserDaoImpl] for bean with name 'userDAO' defined in class path resource [spring-test-config.xml]; nested exception is java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.UserDaoImpl
-	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1263)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:581)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1332)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:337)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:316)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:303)
-	at org.springframework.context.support.AbstractApplicationContext.getBeanNamesForType(AbstractApplicationContext.java:1174)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:101)
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:87)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:150)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1545)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1483)
-	... 43 more
-Caused by: java.lang.ClassNotFoundException: com.comag10.crowdflower.dao.UserDaoImpl
-	at java.net.URLClassLoader$1.run(Unknown Source)
-	at java.net.URLClassLoader$1.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.net.URLClassLoader.findClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
-	at java.lang.ClassLoader.loadClass(Unknown Source)
-	at org.springframework.util.ClassUtils.forName(ClassUtils.java:258)
-	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:415)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1284)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1255)
-	... 54 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalStateException -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="5493" started-at="2016-06-02T12:05:53Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-06-02T12:05:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="SKIP" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.comag10.crowdflower.AnnouncementTest@73383d8a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2016-04-24T23:00:22Z" finished-at="2016-04-24T23:00:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="SKIP" signature="getAnnouncementsTest()[pri:0, instance:com.comag10.crowdflower.AnnouncementTest@73383d8a]" name="getAnnouncementsTest" duration-ms="2" started-at="2016-04-24T23:00:22Z" finished-at="2016-04-24T23:00:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getAnnouncementsTest -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.comag10.crowdflower.AnnouncementTest@73383d8a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="49" started-at="2016-04-24T23:00:22Z" finished-at="2016-04-24T23:00:22Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1039" started-at="2016-06-02T12:05:59Z" finished-at="2016-06-02T12:06:00Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.comag10.crowdflower.AnnouncementTest.getAnnouncementsTest() throws java.lang.Exception]]>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddAnnouncement400()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAddAnnouncement400()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAddAnnouncement400" duration-ms="2246" started-at="2016-06-02T12:06:00Z" finished-at="2016-06-02T12:06:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddAnnouncement400 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="519" started-at="2016-06-02T12:06:02Z" finished-at="2016-06-02T12:06:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddAnnouncement400()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.comag10.crowdflower.AnnouncementTest@73383d8a]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-04-24T23:00:22Z" finished-at="2016-04-24T23:00:22Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="535" started-at="2016-06-02T12:06:03Z" finished-at="2016-06-02T12:06:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddContest400()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAddContest400()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAddContest400" duration-ms="2021" started-at="2016-06-02T12:06:03Z" finished-at="2016-06-02T12:06:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddContest400 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="277" started-at="2016-06-02T12:06:05Z" finished-at="2016-06-02T12:06:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddContest400()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="553" started-at="2016-06-02T12:06:06Z" finished-at="2016-06-02T12:06:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewAnnouncement()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAddNewAnnouncement()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAddNewAnnouncement" duration-ms="2063" started-at="2016-06-02T12:06:06Z" finished-at="2016-06-02T12:06:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNewAnnouncement -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="354" started-at="2016-06-02T12:06:08Z" finished-at="2016-06-02T12:06:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewAnnouncement()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="564" started-at="2016-06-02T12:06:09Z" finished-at="2016-06-02T12:06:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewAnnouncement405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAddNewAnnouncement405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAddNewAnnouncement405" duration-ms="2060" started-at="2016-06-02T12:06:09Z" finished-at="2016-06-02T12:06:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNewAnnouncement405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="332" started-at="2016-06-02T12:06:11Z" finished-at="2016-06-02T12:06:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewAnnouncement405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="577" started-at="2016-06-02T12:06:11Z" finished-at="2016-06-02T12:06:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewContest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAddNewContest()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAddNewContest" duration-ms="2202" started-at="2016-06-02T12:06:12Z" finished-at="2016-06-02T12:06:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNewContest -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="371" started-at="2016-06-02T12:06:14Z" finished-at="2016-06-02T12:06:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewContest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="704" started-at="2016-06-02T12:06:15Z" finished-at="2016-06-02T12:06:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewContest405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAddNewContest405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAddNewContest405" duration-ms="2020" started-at="2016-06-02T12:06:15Z" finished-at="2016-06-02T12:06:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNewContest405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="333" started-at="2016-06-02T12:06:17Z" finished-at="2016-06-02T12:06:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewContest405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="502" started-at="2016-06-02T12:06:18Z" finished-at="2016-06-02T12:06:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewVote()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAddNewVote()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAddNewVote" duration-ms="2176" started-at="2016-06-02T12:06:18Z" finished-at="2016-06-02T12:06:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNewVote -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="505" started-at="2016-06-02T12:06:20Z" finished-at="2016-06-02T12:06:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewVote()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1215" started-at="2016-06-02T12:06:21Z" finished-at="2016-06-02T12:06:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewVote405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAddNewVote405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAddNewVote405" duration-ms="2020" started-at="2016-06-02T12:06:22Z" finished-at="2016-06-02T12:06:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNewVote405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="493" started-at="2016-06-02T12:06:24Z" finished-at="2016-06-02T12:06:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddNewVote405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="516" started-at="2016-06-02T12:06:25Z" finished-at="2016-06-02T12:06:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddVote400()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAddVote400()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAddVote400" duration-ms="2034" started-at="2016-06-02T12:06:25Z" finished-at="2016-06-02T12:06:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddVote400 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="459" started-at="2016-06-02T12:06:27Z" finished-at="2016-06-02T12:06:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAddVote400()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="573" started-at="2016-06-02T12:06:28Z" finished-at="2016-06-02T12:06:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAnnouncementMethodNotAllowed()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAnnouncementMethodNotAllowed()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAnnouncementMethodNotAllowed" duration-ms="10" started-at="2016-06-02T12:06:28Z" finished-at="2016-06-02T12:06:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAnnouncementMethodNotAllowed -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="344" started-at="2016-06-02T12:06:28Z" finished-at="2016-06-02T12:06:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAnnouncementMethodNotAllowed()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="484" started-at="2016-06-02T12:06:29Z" finished-at="2016-06-02T12:06:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAnnouncementNotFound()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testAnnouncementNotFound()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testAnnouncementNotFound" duration-ms="30" started-at="2016-06-02T12:06:29Z" finished-at="2016-06-02T12:06:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAnnouncementNotFound -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="237" started-at="2016-06-02T12:06:29Z" finished-at="2016-06-02T12:06:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testAnnouncementNotFound()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="523" started-at="2016-06-02T12:06:29Z" finished-at="2016-06-02T12:06:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testContestNotFound()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testContestNotFound()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testContestNotFound" duration-ms="50" started-at="2016-06-02T12:06:30Z" finished-at="2016-06-02T12:06:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testContestNotFound -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="253" started-at="2016-06-02T12:06:30Z" finished-at="2016-06-02T12:06:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testContestNotFound()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="683" started-at="2016-06-02T12:06:30Z" finished-at="2016-06-02T12:06:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testDeleteAnnouncement()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testDeleteAnnouncement()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testDeleteAnnouncement" duration-ms="2026" started-at="2016-06-02T12:06:31Z" finished-at="2016-06-02T12:06:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteAnnouncement -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="332" started-at="2016-06-02T12:06:33Z" finished-at="2016-06-02T12:06:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testDeleteAnnouncement()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="758" started-at="2016-06-02T12:06:33Z" finished-at="2016-06-02T12:06:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testDeleteAnnouncement405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testDeleteAnnouncement405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testDeleteAnnouncement405" duration-ms="2018" started-at="2016-06-02T12:06:34Z" finished-at="2016-06-02T12:06:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteAnnouncement405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="2611" started-at="2016-06-02T12:06:36Z" finished-at="2016-06-02T12:06:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testDeleteAnnouncement405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="596" started-at="2016-06-02T12:06:39Z" finished-at="2016-06-02T12:06:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testDeleteContest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testDeleteContest()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testDeleteContest" duration-ms="2021" started-at="2016-06-02T12:06:39Z" finished-at="2016-06-02T12:06:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteContest -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="357" started-at="2016-06-02T12:06:41Z" finished-at="2016-06-02T12:06:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testDeleteContest()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="549" started-at="2016-06-02T12:06:42Z" finished-at="2016-06-02T12:06:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testDeleteContest405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testDeleteContest405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testDeleteContest405" duration-ms="2021" started-at="2016-06-02T12:06:42Z" finished-at="2016-06-02T12:06:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteContest405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="259" started-at="2016-06-02T12:06:44Z" finished-at="2016-06-02T12:06:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testDeleteContest405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="564" started-at="2016-06-02T12:06:44Z" finished-at="2016-06-02T12:06:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGETAnnouncementMethodNotAllowed()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGETAnnouncementMethodNotAllowed()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGETAnnouncementMethodNotAllowed" duration-ms="20" started-at="2016-06-02T12:06:45Z" finished-at="2016-06-02T12:06:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGETAnnouncementMethodNotAllowed -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="246" started-at="2016-06-02T12:06:45Z" finished-at="2016-06-02T12:06:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGETAnnouncementMethodNotAllowed()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="644" started-at="2016-06-02T12:06:45Z" finished-at="2016-06-02T12:06:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetAnnouncementCollection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetAnnouncementCollection()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetAnnouncementCollection" duration-ms="2539" started-at="2016-06-02T12:06:46Z" finished-at="2016-06-02T12:06:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAnnouncementCollection -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="290" started-at="2016-06-02T12:06:48Z" finished-at="2016-06-02T12:06:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetAnnouncementCollection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="514" started-at="2016-06-02T12:06:49Z" finished-at="2016-06-02T12:06:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetContestById()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetContestById" duration-ms="2023" started-at="2016-06-02T12:06:49Z" finished-at="2016-06-02T12:06:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetContestById -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="440" started-at="2016-06-02T12:06:51Z" finished-at="2016-06-02T12:06:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestById()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="645" started-at="2016-06-02T12:06:52Z" finished-at="2016-06-02T12:06:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestById405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetContestById405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetContestById405" duration-ms="2013" started-at="2016-06-02T12:06:52Z" finished-at="2016-06-02T12:06:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetContestById405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="352" started-at="2016-06-02T12:06:54Z" finished-at="2016-06-02T12:06:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestById405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="480" started-at="2016-06-02T12:06:55Z" finished-at="2016-06-02T12:06:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestNotFound()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetContestNotFound()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetContestNotFound" duration-ms="434" started-at="2016-06-02T12:06:55Z" finished-at="2016-06-02T12:06:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetContestNotFound -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="598" started-at="2016-06-02T12:06:56Z" finished-at="2016-06-02T12:06:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestNotFound()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="606" started-at="2016-06-02T12:06:56Z" finished-at="2016-06-02T12:06:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestVotes()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetContestVotes()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetContestVotes" duration-ms="2023" started-at="2016-06-02T12:06:57Z" finished-at="2016-06-02T12:06:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetContestVotes -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="689" started-at="2016-06-02T12:06:59Z" finished-at="2016-06-02T12:06:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestVotes()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="586" started-at="2016-06-02T12:06:59Z" finished-at="2016-06-02T12:07:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestVotes405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetContestVotes405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetContestVotes405" duration-ms="2016" started-at="2016-06-02T12:07:00Z" finished-at="2016-06-02T12:07:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetContestVotes405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="303" started-at="2016-06-02T12:07:02Z" finished-at="2016-06-02T12:07:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestVotes405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="504" started-at="2016-06-02T12:07:02Z" finished-at="2016-06-02T12:07:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestsCollection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetContestsCollection()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetContestsCollection" duration-ms="2426" started-at="2016-06-02T12:07:03Z" finished-at="2016-06-02T12:07:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetContestsCollection -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="254" started-at="2016-06-02T12:07:05Z" finished-at="2016-06-02T12:07:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestsCollection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="586" started-at="2016-06-02T12:07:06Z" finished-at="2016-06-02T12:07:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestsCollection405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetContestsCollection405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetContestsCollection405" duration-ms="2021" started-at="2016-06-02T12:07:06Z" finished-at="2016-06-02T12:07:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetContestsCollection405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="494" started-at="2016-06-02T12:07:08Z" finished-at="2016-06-02T12:07:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetContestsCollection405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="511" started-at="2016-06-02T12:07:09Z" finished-at="2016-06-02T12:07:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetUserSettingsCollection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetUserSettingsCollection()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetUserSettingsCollection" duration-ms="2313" started-at="2016-06-02T12:07:09Z" finished-at="2016-06-02T12:07:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetUserSettingsCollection -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="390" started-at="2016-06-02T12:07:11Z" finished-at="2016-06-02T12:07:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetUserSettingsCollection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="506" started-at="2016-06-02T12:07:12Z" finished-at="2016-06-02T12:07:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetUserSettingsCollection405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testGetUserSettingsCollection405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testGetUserSettingsCollection405" duration-ms="2015" started-at="2016-06-02T12:07:12Z" finished-at="2016-06-02T12:07:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetUserSettingsCollection405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="253" started-at="2016-06-02T12:07:14Z" finished-at="2016-06-02T12:07:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testGetUserSettingsCollection405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="561" started-at="2016-06-02T12:07:15Z" finished-at="2016-06-02T12:07:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testInvalidEmail()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testInvalidEmail()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testInvalidEmail" duration-ms="2104" started-at="2016-06-02T12:07:15Z" finished-at="2016-06-02T12:07:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidEmail -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="413" started-at="2016-06-02T12:07:17Z" finished-at="2016-06-02T12:07:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testInvalidEmail()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="590" started-at="2016-06-02T12:07:18Z" finished-at="2016-06-02T12:07:18Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testUpdateEmail()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testUpdateEmail()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testUpdateEmail" duration-ms="2530" started-at="2016-06-02T12:07:18Z" finished-at="2016-06-02T12:07:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUpdateEmail -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="456" started-at="2016-06-02T12:07:21Z" finished-at="2016-06-02T12:07:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testUpdateEmail()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="624" started-at="2016-06-02T12:07:21Z" finished-at="2016-06-02T12:07:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testUpdateEmail405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testUpdateEmail405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testUpdateEmail405" duration-ms="2032" started-at="2016-06-02T12:07:22Z" finished-at="2016-06-02T12:07:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUpdateEmail405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="272" started-at="2016-06-02T12:07:24Z" finished-at="2016-06-02T12:07:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testUpdateEmail405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="494" started-at="2016-06-02T12:07:24Z" finished-at="2016-06-02T12:07:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testUpdateSettings()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testUpdateSettings()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testUpdateSettings" duration-ms="2245" started-at="2016-06-02T12:07:25Z" finished-at="2016-06-02T12:07:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUpdateSettings -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="250" started-at="2016-06-02T12:07:27Z" finished-at="2016-06-02T12:07:27Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testUpdateSettings()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="598" started-at="2016-06-02T12:07:27Z" finished-at="2016-06-02T12:07:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testUpdateSettings405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testUpdateSettings405()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="testUpdateSettings405" duration-ms="2016" started-at="2016-06-02T12:07:28Z" finished-at="2016-06-02T12:07:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUpdateSettings405 -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="284" started-at="2016-06-02T12:07:30Z" finished-at="2016-06-02T12:07:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.pwp.restapi.PsoasRestApiTest.testUpdateSettings405()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.pwp.restapi.PsoasRestApiTest@70ab4338]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-06-02T12:07:30Z" finished-at="2016-06-02T12:07:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->
-      </class> <!-- com.comag10.crowdflower.AnnouncementTest -->
+      </class> <!-- com.pwp.restapi.PsoasRestApiTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

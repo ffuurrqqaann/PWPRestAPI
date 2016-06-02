@@ -36,7 +36,7 @@ import com.pwp.restapi.service.VoteService;
 DbUnitTestExecutionListener.class })
 @ContextConfiguration(locations = { "classpath:spring-test-config.xml" })
 @Transactional
-public class PsoasTest extends AbstractTestNGSpringContextTests {
+public class PsoasDatabaseTest extends AbstractTestNGSpringContextTests {
 	
 	@Autowired
 	private VoteService voteService;

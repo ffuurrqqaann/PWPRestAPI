@@ -76,13 +76,17 @@ template representation
 { "collection" :
   {
     "version" : "1.0",
-    "href" : "http://localhost:8080/PWPRestAPI/api/v1/user/",
+    "href" : "http://localhost:8080/PWPRestAPI/api/v1/user/1/email/",
     
     "template" : {
 		"data" : [
-		  {"name" : "user_id", "value" : "1"},
-		  {"name" : "email", "value" : "furqan@furqan.com"}
-		]
+				{"name" : "title", "value" : "test title"},
+				{"name" : "message", "value" : "test message from user"},
+				{"name" : "announcer", "value" : "1"},
+				{"name" : "publish", "value" : "2016-03-20 17:33:28"},
+				{"name" : "created", "value" : "2016-03-20 17:33:28"},
+				{"name" : "updated", "value" : "2016-03-20 17:33:28"}
+			]
 	}
   } 
 }

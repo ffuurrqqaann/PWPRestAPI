@@ -1,0 +1,136 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<mvc:annotation-driven />
+	<tx:annotation-driven />
+	<context:component-scan base-package="com.pwp.restapi" />
+	
+	<!-- Application Message Bundle -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/messages" />
+		<property name="cacheSeconds" value="3000" />
+	</bean>
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/psoas-test" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.pwp.restapi.model.User</value>
+				<value>com.pwp.restapi.model.UserSetting</value>
+				<value>com.pwp.restapi.model.Announcement</value>
+				<value>com.pwp.restapi.model.Contest</value>
+				<value>com.pwp.restapi.model.Vote</value>
+				<value>com.pwp.restapi.model.Setting</value>
+				<value>com.pwp.restapi.model.Category</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- initializing beans -->
+	
+	<!-- user bean -->
+	<bean id="userDAO" class="com.pwp.restapi.dao.UserDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="userService"
+		class="com.pwp.restapi.service.UserServiceImpl">
+		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	
+	<!-- user setting bean -->
+	<bean id="userSettingDAO" class="com.pwp.restapi.dao.UserSettingDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="userSettingService"
+		class="com.pwp.restapi.service.UserSettingServiceImpl">
+		<property name="userSettingDAO" ref="userSettingDAO"></property>
+	</bean>
+	
+	<!-- user contest bean -->
+	<bean id="contestDAO" class="com.pwp.restapi.dao.ContestDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="contestService"
+		class="com.pwp.restapi.service.ContestServiceImpl">
+		<property name="contestDAO" ref="contestDAO"></property>
+	</bean>
+	
+	<!-- user votes bean -->
+	<bean id="voteDAO" class="com.pwp.restapi.dao.VoteDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="voteService"
+		class="com.pwp.restapi.service.VoteServiceImpl">
+		<property name="voteDAO" ref="voteDAO"></property>
+	</bean>
+	
+	<!-- user announcement bean -->
+	<bean id="announcementDAO" class="com.pwp.restapi.dao.AnnouncementDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="announcementService"
+		class="com.pwp.restapi.service.AnnouncementServiceImpl">
+		<property name="announcementDAO" ref="announcementDAO"></property>
+	</bean>
+	
+	<!-- settings bean -->
+	<bean id="settingDAO" class="com.pwp.restapi.dao.SettingDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="settingService"
+		class="com.pwp.restapi.service.SettingServiceImpl">
+		<property name="settingDAO" ref="settingDAO"></property>
+	</bean>
+	
+	<!-- category bean -->
+	<bean id="categoryDAO" class="com.pwp.restapi.dao.CategoryDaoImpl">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+	<bean id="categoryService"
+		class="com.pwp.restapi.service.CategoryServiceImpl">
+		<property name="categoryDAO" ref="categoryDAO"></property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</bean>
+</beans>
